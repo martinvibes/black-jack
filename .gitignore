@@ -1,0 +1,17 @@
+.DS_Store
+
+# ignore dist folder
+dist/
+
+# ignore node_modules
+node_modules/
+
+# ignore package-lock.json
+package-lock.json
+
+# ignore style.css
+style.css
+
+tailwind.config.json
+src/
+tailwindcss
