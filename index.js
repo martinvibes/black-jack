@@ -1,7 +1,6 @@
 
-let firstCard = newCard();
-let secondCard = newCard();
-let sum = firstCard + secondCard;
+let cards = [];
+let sum = 0;
 let message = "";
 let hasBlackJack = false;
 let isAlive = false;
@@ -12,8 +11,12 @@ const START_GAME = document.querySelector("#start_game");
 const NEW_CARD = document.querySelector("#new_card");
 
 function renderCard() {
-  CARDS_NUMBER.textContent = "cards: " + firstCard + " " + secondCard;
-  SUM_CARDS.textContent = "cards: " + sum;
+  CARDS_NUMBER.textContent = "cards: "
+  for (let i = 0; i < cards.length; i++) {
+    CARDS_NUMBER.textContent += cards[i] + " ";
+  }
+
+  SUM_CARDS.textContent = "sum: " + sum;
   if (sum < 21) {
     message = "do you want to draw a new card?";
   } else if (sum === 21) {
@@ -27,13 +30,22 @@ function renderCard() {
   MESSAGE_INDICATOR.textContent = message;
 }
 
-function newCard() {
-  let random = Math.floor( Math.random() * 13 ) + 1
-  return random;
-}
-
 START_GAME.addEventListener("click", () => {
+  let firstCard = 10;
+  let secondCard = 11;
+  cards = [firstCard, secondCard];
+  sum = firstCard + secondCard;
+  isAlive = true;
   renderCard()
 })
+
+NEW_CARD.addEventListener("click", () => {
+  if (hasBlackJack === false && isAlive === true) {
+   
+  }
+  renderCard()
+})
+
+
 
 
