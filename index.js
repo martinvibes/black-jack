@@ -30,9 +30,26 @@ function renderCard() {
   MESSAGE_INDICATOR.textContent = message;
 }
 
+function randomCard() {
+  let random = Math.floor( Math.random() * 13 ) + 1
+  if (random === 1) {
+    return 11;
+  } else if (random === 10) {
+    return 11;
+  } else {
+    return random;
+  }
+}
+
+function newCard() {
+  let card = randomCard();
+  sum += card
+  cards.push(card)
+}
+
 START_GAME.addEventListener("click", () => {
-  let firstCard = 10;
-  let secondCard = 11;
+  let firstCard = randomCard();
+  let secondCard = randomCard();
   cards = [firstCard, secondCard];
   sum = firstCard + secondCard;
   isAlive = true;
@@ -41,7 +58,7 @@ START_GAME.addEventListener("click", () => {
 
 NEW_CARD.addEventListener("click", () => {
   if (hasBlackJack === false && isAlive === true) {
-   
+    newCard()
   }
   renderCard()
 })
