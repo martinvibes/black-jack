@@ -1,14 +1,34 @@
 
+let player = {
+  name: "",
+  chips: "150"
+}
+
 let cards = [];
 let sum = 0;
 let message = "";
 let hasBlackJack = false;
 let isAlive = false;
+const playerName = document.querySelector("#player");
 const MESSAGE_INDICATOR = document.querySelector("#message_indicator");
 const CARDS_NUMBER = document.querySelector("#cards_number");
 const SUM_CARDS = document.querySelector("#sum_cards");
 const START_GAME = document.querySelector("#start_game");
 const NEW_CARD = document.querySelector("#new_card");
+
+while (true) {
+  let userName = prompt("please input your name")
+
+ if (userName !== null && userName.trim() !== "") {
+  playerName.textContent = userName + ": " + "$" + player.chips;
+  alert("welcome to bj games " + userName)
+  break;
+ } else if (userName === null && userName === "") {
+   userName;
+ } else {
+  alert("please enter a name")
+  }
+}
 
 function renderCard() {
   CARDS_NUMBER.textContent = "cards: "
