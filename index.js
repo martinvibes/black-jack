@@ -9,7 +9,7 @@ let sum = 0;
 let message = "";
 let hasBlackJack = false;
 let isAlive = false;
-const playerName = document.querySelector("#player");
+const PLAYER_NAME = document.querySelector("#player");
 const MESSAGE_INDICATOR = document.querySelector("#message_indicator");
 const CARDS_NUMBER = document.querySelector("#cards_number");
 const SUM_CARDS = document.querySelector("#sum_cards");
@@ -20,14 +20,13 @@ while (true) {
   let userName = prompt("please input your name")
 
  if (userName !== null && userName.trim() !== "") {
-  playerName.textContent = userName + ": " + "$" + player.chips;
-  alert("welcome to bj games " + userName)
+  PLAYER_NAME.textContent = userName + ": " + "$" + player.chips;
+  alert("welcome to bj games " + userName);
   break;
- } else if (userName === null && userName === "") {
-   userName;
  } else {
-  alert("please enter a name")
-  }
+   userName;
+   alert("please input your name");
+ } 
 }
 
 function renderCard() {
@@ -65,7 +64,7 @@ function newCard() {
   let card = randomCard();
   sum += card;
   cards.push(card);
-  newCard();
+  renderCard();
 }
 
 START_GAME.addEventListener("click", () => {
