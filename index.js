@@ -1,7 +1,6 @@
 
 let player = {
-  name: "",
-  chips: "150"
+  chips: "15"
 }
 
 let cards = [];
@@ -9,6 +8,8 @@ let sum = 0;
 let message = "";
 let hasBlackJack = false;
 let isAlive = false;
+
+const reset_button = document.querySelector("#resetButton")
 const PLAYER_NAME = document.querySelector("#player");
 const MESSAGE_INDICATOR = document.querySelector("#message_indicator");
 const CARDS_NUMBER = document.querySelector("#cards_number");
@@ -16,18 +17,43 @@ const SUM_CARDS = document.querySelector("#sum_cards");
 const START_GAME = document.querySelector("#start_game");
 const NEW_CARD = document.querySelector("#new_card");
 
-while (true) {
-  let userName = prompt("please input your name")
+var userName = localStorage.getItem("userName");
 
- if (userName !== null && userName.trim() !== "") {
+function updateUserName() {
   PLAYER_NAME.textContent = userName + ": " + "$" + player.chips;
-  alert("welcome to bj games " + userName);
-  break;
- } else {
-   userName;
-   alert("please input your name");
- } 
 }
+
+if (userName) {
+  updateUserName();
+  alert("Welcome back, " + userName + "!");
+} else { 
+  userName = prompt("Please enter your Username");
+
+  if (userName !== null && userName !== "") { 
+    localStorage.setItem("userName", userName);
+    updateUserName();
+    alert("Welcome to the BJ games, " + userName + "!");
+  } else {
+    alert("Access denied. You must enter a name to use the application.");
+  }
+}
+
+function resetName() {
+  localStorage.removeItem("userName");
+  userName = "";
+  updateUserName();
+}  
+
+reset_button.addEventListener("click", () => {
+  resetName()
+  userName = prompt("Please enter a name")
+    // updateUserName();
+    if (userName !== null && userName !== "") { 
+      localStorage.setItem("userName", userName);
+      alert("Welcome to the BJ games, " + userName + "!");
+      updateUserName();
+    }
+});
 
 function renderCard() {
   CARDS_NUMBER.textContent = "cards: "
