@@ -27,7 +27,8 @@ if (userName) {
   updateUserName();
   alert("Welcome back, " + userName + "!");
 } else { 
-  userName = prompt("Please enter your Username");
+ do {
+   userName = prompt("Please enter your Username");
 
   if (userName !== null && userName !== "") { 
     localStorage.setItem("userName", userName);
@@ -36,6 +37,7 @@ if (userName) {
   } else {
     alert("Access denied. You must enter a name to use the application.");
   }
+ } while (!userName);
 }
 
 function resetName() {
