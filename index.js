@@ -44,6 +44,11 @@ function resetName() {
   localStorage.removeItem("userName");
   userName = "";
   updateUserName();
+  cards = [];
+  sum = 0;
+  hasBlackJack = false;
+
+  renderCard();
 }  
 
 reset_button.addEventListener("click", () => {
@@ -105,7 +110,7 @@ START_GAME.addEventListener("click", () => {
 })
 
 NEW_CARD.addEventListener("click", () => {
-  if (hasBlackJack === false && isAlive === true) {
+  if (isAlive === true) {
     newCard();
   }
   renderCard();
