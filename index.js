@@ -57,25 +57,25 @@ reset_button.addEventListener("click", () => {
     // updateUserName();
     if (userName !== null && userName !== "") { 
       localStorage.setItem("userName", userName);
-      alert("Welcome to the BJ games, " + userName + "!");
+      alert("UserName sucessfully changed to , " + userName + "!");
       updateUserName();
     }
 });
 
 function renderCard() {
-  CARDS_NUMBER.textContent = "cards: "
+  CARDS_NUMBER.textContent = "cards: ";
   for (let i = 0; i < cards.length; i++) {
     CARDS_NUMBER.textContent += cards[i] + " ";
   }
 
   SUM_CARDS.textContent = "sum: " + sum;
   if (sum < 21) {
-    message = "do you want to draw a new card?";
+    message = "do you want to draw a new card? 😀";
   } else if (sum === 21) {
-    message = "wohoo you've got black jack !!!"; 
+    message = "wohoo you've got black jack 🎉"; 
     hasBlackJack = true;
   } else {
-    message = "you're out of the game!";
+    message = "you're out of the game! 💥";
     isAlive = false;
   }
 
@@ -83,7 +83,7 @@ function renderCard() {
 }
 
 function randomCard() {
-  let random = Math.floor( Math.random() * 13 ) + 1
+  let random = Math.floor( Math.random() * 13 ) + 1;
   if (random === 1) {
     return 11;
   } else if (random > 10) {
