@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/dist/output.css">
-  <title>Black Jack Game</title>
-</head>
-<body class="bg-slate-600">
-  <h1 class="text-yellow-600 font-bold text-5xl ">Black Jack</h1>
-  <h2 id="message_indicator">Want to play a round?</h2>
-  <p id="cards_number" class="text-blue-700">cards: </p>
-  <p id="sum_cards">sum: </p>
-  <button id="start_game" class="border border-purple-800 rounded-lg font-bold bg-indigo-700">START GAME</button>
-  <button id="new_card" class="border border-red-800 rounded-lg font-bold bg-indigo-700 text-4xl text-red-700">NEW CARD</button>
-  
-  <script src="./index.js"></script>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/output.css" />
+    <link rel="stylesheet" href="/style.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Black Jack Game</title>
+  </head>
+  <body class="font-custom">
+    <div>
+      <h1 class="font-bold text-5xl mb-8">Black Jack</h1>
+      <h2 id="message_indicator">Want to play a round? 😀</h2>
+      <p id="cards_number">cards:</p>
+      <p id="sum_cards" class="mb-3">sum:</p>
+
+      <button
+        id="start_game"
+        class="rounded p-1 text-green-900 hover:text-green-700 font-extrabold text-lg m-2"
+      >
+        START GAME
+      </button>
+      <button
+        id="new_card"
+        class="rounded p-1 text-green-900 hover:text-green-700 font-extrabold text-lg"
+      >
+        NEW CARD
+      </button>
+
+      <p id="player" class="mt-2 font-bold text-white">UserName:</p>
+      <button
+        id="resetButton"
+        class="rounded p-1 text-green-900 hover:text-green-700 font-extrabold text-lg mt-2"
+      >
+        Reset Username
+      </button>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
 </html>
